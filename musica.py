@@ -6,7 +6,12 @@ from readchar import key
 
 notasportecla = {
     'w': (261, 2, 44100),
-    'e': (294, 2, 44100)
+    'e': (294, 2, 44100),
+    'r': (330,2,44100),
+    't': (350,2,44100),
+    'y': (392,2,44100),
+    'u': (440,2,44100),
+    'i': (494,2,44100),
 }
 
 
@@ -17,12 +22,6 @@ def audiobit(freq,duration,freq_muestreo):
     print("ha comenzado el juego")
     sde.stop()
     sde.play(sinus,freq_muestreo)
-   # tecla = readchar.readkey()
-#    if tecla:
- #       sde.wait()
-  #      return
-
-    #sde.wait()
     print("hemos terminado tio")
 
 
@@ -43,10 +42,11 @@ def main():
 
     while True:
         teclis = readchar.readkey()
-        if teclis  == key.ESC:
+        if teclis  == 'q':
+            sde.stop()
             print("adios")
             break
-        if teclis in notasportecla:
+        elif teclis in notasportecla:
             keydetectaudio(notasportecla[teclis])
 
         
